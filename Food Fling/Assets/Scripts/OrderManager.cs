@@ -120,7 +120,9 @@ public sealed class OrderManager : MonoBehaviour
     public void CompleteOrder(int orderID)
     {
         completedOrders++;
-        GetActiveOrderByID(orderID).UpdateStatus(OrderStatus.Completed);
+        Order tempOrder = GetActiveOrderByID(orderID);
+        tempOrder.UpdateStatus(OrderStatus.Completed);
+        ActiveOrders.Remove(tempOrder);
         Debug.Log($"Completed Order: {orderID}");
     }
 

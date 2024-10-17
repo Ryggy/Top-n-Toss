@@ -45,9 +45,13 @@ public class Order
 
     public void Update(float deltaTime)
     {
-        if (isTimed)
+        if(isTimed && orderTimer <= timeLimit)
         {
             orderTimer += deltaTime;
+            
+            OrderManager.Instance.FailOrder(orderID);
+            
+            isTimed = false;
         }
     }
     

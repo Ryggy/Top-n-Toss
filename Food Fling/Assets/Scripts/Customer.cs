@@ -81,15 +81,9 @@ public class Customer : MonoBehaviour
     /// <param name="timeElapsed"></param>
     public void UpdatePatience(float timeElapsed)
     {
-        patience -= timeElapsed;
-
         if (!(patience <= 0)) return;
         
-        // fail all orders
-        foreach (var order in CustomerOrder)
-        {
-            OrderManager.Instance.FailOrder(order.orderID);
-        }
+        patience -= timeElapsed;
     }
 
     /// <summary>
