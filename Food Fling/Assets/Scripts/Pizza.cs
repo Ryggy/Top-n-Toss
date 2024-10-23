@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,9 @@ public class Pizza : MonoBehaviour
     public int maxIngredients = 5;
     // A flag that determines if the pizza construction has been finalised.
     public bool isPizzaCorrect = false;
-    // Represents the type of pizza base (e.g., thin crust, thick crust) chosen for the order.
-    // they may have different cook times?
-    //public PizzaBase PizzaBase;
 
+    public Test_UI TestUI;
+    
     public void AddIngredient(string ingredient)
     {
         if (IngredientsOnPizza.Count >= maxIngredients) return;
@@ -50,21 +50,32 @@ public class Pizza : MonoBehaviour
         IngredientsOnPizza.Clear();
         isPizzaCorrect = false;
         Debug.Log("Pizza reset!");
+
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
     }
 
-    public void SubmitPizza()
+    public void SubmitPizza(Customer customer = null)
     {
         IsPizzaCorrect();
         
         // this would be where the pizza in placed on a slingshot and players flings it
+
+        // TODO: pass in the customer the pizza actually hits and check active orders, currently hard codes we hit the correct customer
         
-        // TODO: pass in the customer the pizza actually hits and check active orders, currently hard codes we hit the right customer
-        Order tempOrder = OrderManager.Instance.CurrentOrder; // this would be the order of the customer we hit
-        tempOrder.EvaluatePizza(this);
-        tempOrder.customerDetails.UpdateSatisfaction(this);
-        var reward = tempOrder.customerDetails.CalculateReward(tempOrder.orderID);
-        OrderManager.Instance.CompleteOrder(tempOrder.orderID);
-        // add reward
-        Progression.Instance.GainXp(reward);
+        if (customer != null && customer.CustomerOrder.Count > 0)
+        {
+            Order tempOrder = customer.CustomerOrder[0];
+            tempOrder.EvaluatePizza(this);
+            tempOrder.customerDetails.UpdateSatisfaction(this);
+            var reward = tempOrder.customerDetails.CalculateReward(tempOrder.orderID);
+            OrderManager.Instance.CompleteOrder(tempOrder.orderID);
+            // add reward
+            Progression.Instance.GainXp(reward);
+            TestUI.UpdateScore(reward);
+        }
+        ResetPizza();
     }
 }

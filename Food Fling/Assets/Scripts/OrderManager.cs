@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Ingredients;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public enum OrderStatus
 {
@@ -43,7 +44,7 @@ public sealed class OrderManager : MonoBehaviour
     public int failedOrders = 0;
 
     public Customer debugCustomer;
-    
+    public List<Customer> customers = new List<Customer>();
     private void Start()
     {
         InitialiseIngredientDictionary();
@@ -87,7 +88,7 @@ public sealed class OrderManager : MonoBehaviour
         // take the customers order
         var orders = customer.GenerateOrder();
         // keep a record of what they want
-        ActiveOrders.AddRange(orders);
+        //ActiveOrders.AddRange(orders);
         // display the orders
         foreach (var order in ActiveOrders)
         {
@@ -124,6 +125,9 @@ public sealed class OrderManager : MonoBehaviour
         tempOrder.UpdateStatus(OrderStatus.Completed);
         ActiveOrders.Remove(tempOrder);
         Debug.Log($"Completed Order: {orderID}");
+        
+        // taking another random customers order
+        TakeCustomerOrder(customers[Random.Range(0,customers.Count)]);
     }
 
     /// <summary>

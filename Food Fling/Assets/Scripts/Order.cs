@@ -27,7 +27,7 @@ public class Order
     public OrderStatus status;
     // Stores the accuracy of how well the player’s pizza matches the customer’s order.
     public float accuracyScore = 0f;
-
+    
     public Order(Customer customer, int numOfIngredients)
     {
         customerDetails = customer;
@@ -37,10 +37,13 @@ public class Order
         
         // TODO: implement methods to set isTimer and timeLimit based on level config
         
-        // set order status to pending
-        UpdateStatus(OrderStatus.Pending);
         // create a unique id
         orderID = ++_orderCounter;  // Increment the counter and assign the new value
+        
+        OrderManager.Instance.ActiveOrders.Add(this);
+        
+        // set order status to pending
+        UpdateStatus(OrderStatus.Pending);
     }
 
     public void Update(float deltaTime)
@@ -113,6 +116,7 @@ public class Order
             case OrderStatus.Pending:
                 status = newStatus;
                 // update ui?
+                OrderUI.DisplayOrder(customerDetails, orderID);
                 break;
             case OrderStatus.InProgress:
                 status = newStatus;
@@ -120,7 +124,9 @@ public class Order
                 break;
             case OrderStatus.Completed:
                 status = newStatus;
+                customerDetails.CustomerOrder.Remove(this);
                 // update ui?
+                OrderUI.ResetOrderUI(customerDetails, orderID);
                 break;
             case OrderStatus.Failed:
                 status = newStatus;

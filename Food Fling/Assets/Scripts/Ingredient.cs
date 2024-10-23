@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +19,7 @@ public enum IngredientType
     Sauce,
     Cheese
 }
+[Serializable]
 public class Ingredient
 {
     // Unique identifier for the ingredient.

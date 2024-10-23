@@ -10,8 +10,13 @@ public class Customer : MonoBehaviour
 {
     // The customer’s name, used for identification and UI purposes.
     public string customerName;
+
+    public GameObject orderUIGameObject;
+    [HideInInspector]
+    public List<Transform> ingredientGameObjects = new List<Transform>();
+    
     // The customer's order
-    public Order[] CustomerOrder;
+    public List<Order> CustomerOrder = new List<Order>();
     // A list of ingredients the customer prefers on their pizza. These ingredients form part of the order's requirements.
     public List<Ingredient> PrefferedIngredients = new List<Ingredient>();
     // A list of ingredients the customer dislikes.
@@ -29,15 +34,19 @@ public class Customer : MonoBehaviour
     // will limit the available amount of ingredients
     public bool isVegetarian = false;
 
+
+    private void Start()
+    {
+        ingredientGameObjects = OrderUI.FindOrderIngredientGameObjects(this);
+    }
+
     /// <summary>
     /// Generates a new order based on the customer’s preferred and disliked ingredients.
     /// This is used to communicate their pizza requirements to the player.
     /// </summary>
     /// <returns></returns>
-    public Order[] GenerateOrder()
+    public List<Order> GenerateOrder()
     {
-        CustomerOrder = null;
-        
         // determine cumulative difficulty based on level config and if they're a VIP
         var cumulativeDifficulty = GetCumulativeDifficulty();
         // determine number of orders
@@ -45,12 +54,11 @@ public class Customer : MonoBehaviour
         // determine number of ingredients
         var numOfIngredients = GetNumOfIngredients(cumulativeDifficulty, numOfOrders);
         
-        // make new array
-        CustomerOrder = new Order[numOfOrders];
+
         // create order/s
         for (int i = 0; i < numOfOrders; i++)
         {
-            CustomerOrder[i] = new Order(this, numOfIngredients);
+            CustomerOrder.Add(new Order(this, numOfIngredients));
         }
         
         return CustomerOrder;

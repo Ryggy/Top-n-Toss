@@ -41,6 +41,7 @@ public sealed class Progression
             _xpThreshold += 100;
             LevelUp();
         }
+        
     }
 
     public void LevelUp()

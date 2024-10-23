@@ -62,7 +62,7 @@ public class PizzaEditor : Editor
         // Add a button to reset the pizza
         if (GUILayout.Button("Submit Pizza"))
         {
-            pizza.SubmitPizza();
+            pizza.SubmitPizza(OrderManager.Instance.CurrentOrder.customerDetails);
         }
     }
 }
