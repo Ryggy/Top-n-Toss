@@ -10,7 +10,8 @@ public enum FoodType
     Vegetable,
     Meat,
     Seafood,
-    Dairy
+    Dairy,
+    None
 }
 
 public enum IngredientType

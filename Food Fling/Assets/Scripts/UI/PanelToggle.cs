@@ -4,12 +4,12 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UpgradePanel : MonoBehaviour
+public class PanelToggle : MonoBehaviour
 {
     public RectTransform panel; // The panel to be animated
     public float animationDuration = 0.5f; // Duration of the animation
-    public Vector2 closedPosition; // Panel's position when closed
-    public Vector2 openPosition; // Panel's position when open
+    public Vector2 closedPosition; // panel's position when closed
+    public Vector2 openPosition; // panel's position when open
     private bool isOpen = false; // Tracks if the panel is currently open
 
     private void Start()

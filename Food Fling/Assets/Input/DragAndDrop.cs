@@ -120,7 +120,16 @@ public class DragAndDrop : MonoBehaviour
     {
         // Instantiate the ingredient at the touch/mouse position
         // add an offset so its in front of the other ingredients
-        currentIngredient = Instantiate(ingredient, position, Quaternion.identity, SelectedIngredientContainer.transform);
+
+        if (ingredient.transform.childCount > 0)
+        {
+            currentIngredient = Instantiate(ingredient.transform.GetChild(0).gameObject, position, Quaternion.identity, SelectedIngredientContainer.transform);
+        }
+        else
+        {
+            currentIngredient = Instantiate(ingredient.gameObject, position, Quaternion.identity, SelectedIngredientContainer.transform);
+        }
+        
         ingredientStartPos = currentIngredient.transform.position;
         isDragging = true;  // Begin dragging when an ingredient is selected
     }
