@@ -1788,7 +1788,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 314107375}
-  animationDuration: 0.5
+  animationDuration: 0.2
   closedPosition: {x: 800, y: 0}
   openPosition: {x: 0, y: 0}
 --- !u!114 &314107377
@@ -4416,7 +4416,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -400, y: 0}
+  m_AnchoredPosition: {x: -400, y: -41.176453}
   m_SizeDelta: {x: 800, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &1070220374 stripped
@@ -6163,7 +6163,7 @@ Transform:
   m_GameObject: {fileID: 1331021478}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.142, y: -3.962, z: 0}
+  m_LocalPosition: {x: 0.089, y: -3.333, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6268,7 +6268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0912e43ff4d5c1c499cbe3d82c3ee9e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  launchForceMultiplier: 10
+  launchForceMultiplier: 7.5
   rb: {fileID: 1331021484}
 --- !u!50 &1331021484
 Rigidbody2D:
@@ -6976,7 +6976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 1564843362}
-  animationDuration: 0.5
+  animationDuration: 0.2
   closedPosition: {x: -800, y: 0}
   openPosition: {x: 0, y: 0}
 --- !u!1 &1585854022
@@ -7909,7 +7909,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -695, y: 460}
+  m_AnchoredPosition: {x: -681, y: 460}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1823952715
@@ -8042,7 +8042,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 5, y: 460}
+  m_AnchoredPosition: {x: -13, y: 460}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1827965253

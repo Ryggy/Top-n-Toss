@@ -16,10 +16,15 @@ public class Customer : MonoBehaviour
     public List<Transform> ingredientGameObjects = new List<Transform>();
     [SerializeField]
     public List<Order> CustomerOrder = new List<Order>();
-    
+
+    private void Awake()
+    {
+        CustomerManager.Instance.AddCustomer(this); 
+    }
+
     private void Start()
     {
-        CustomerManager.Instance.AddCustomer(this);
+
         ingredientGameObjects = OrderUI.FindOrderIngredientGameObjects(this);
         
         DelegatesManager.Instance.CustomerEventHandler.OnCustomerArrives += HandleCustomerArrives;
