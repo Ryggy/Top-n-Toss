@@ -77,6 +77,8 @@ public sealed class OrderManager : MonoBehaviour
         AllIngredients.Add("Cheese", new Cheese());
         AllIngredients.Add("Ham", new Ham());
         AllIngredients.Add("Pineapple", new Pineapple());
+        AllIngredients.Add("BBQSauce", new BBQSauce());
+        AllIngredients.Add("TomatoSauce", new TomatoSauce());
     }
 
     /// <summary>
