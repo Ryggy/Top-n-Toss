@@ -9,11 +9,12 @@ namespace Ingredients
         {
             ingredientID = 5;
             ingredientName = "BBQSauce";
-            quantity = 1;
             FoodType = FoodType.None;
             IngredientType = IngredientType.Sauce;
-            isUnlocked = true;
+            isUnlocked = false;
             isVegetarian = true;
+            cost = 5;
+            upgradeCost = 200;
         }
     }
 }

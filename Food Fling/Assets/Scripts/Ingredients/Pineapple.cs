@@ -9,11 +9,12 @@ namespace Ingredients
         {
             ingredientID = 0;
             ingredientName = "Pineapple";
-            quantity = 1;
             FoodType = FoodType.Fruit;
             IngredientType = IngredientType.Topping;
             isUnlocked = false;
             isVegetarian = true;
+            cost = 5;
+            upgradeCost = 200;
         }
     }
 }

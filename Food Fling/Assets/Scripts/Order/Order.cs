@@ -1,0 +1,152 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Timers;
+using Unity.VisualScripting;
+using UnityEngine;
+using Random = UnityEngine.Random;
+
+[Serializable]
+public class Order
+{
+    public OrderData Data { get; private set; }
+    
+    public Order(CustomerData customerData, int numOfIngredients)
+    {
+        Data = new OrderData(customerData);
+        Data.RequiredIngredients = GenerateIngredients(numOfIngredients);
+        UpdateStatus(OrderStatus.Pending);
+    }
+    
+    public void UpdateOrder(float deltaTime)
+    {
+        if (!Data.IsTimed) return;
+        Data.OrderTimer += deltaTime;
+        // update patience of customer
+        DelegatesManager.Instance.TriggerOnCustomerPatienceChange(Data.CustomerData);
+        if (Data.OrderTimer < Data.TimeLimit) return;
+        // if we are here, the order is timed and we are over the time limit
+        OrderManager.Instance.FailOrder(Data.OrderID);
+        Data.IsTimed = false;
+    }
+    
+    /// <summary>
+    /// Generates a list of ingredients based on the unlocked ingredients and customer preferences
+    /// </summary>
+    /// <param name="numOfIngredients"></param>
+    public List<Ingredient> GenerateIngredients(int numOfIngredients = 2)
+    {
+        var ingredients = new List<Ingredient>();
+        var allIngredients = OrderManager.Instance.AllIngredients;
+
+        if (allIngredients.Count < 1)
+        {
+            Debug.LogError("No ingredients found in allIngredients Dictionary");
+            return null;
+        }
+
+        var tempIngredientList = allIngredients
+            .Where(ingredient => ingredient.Value.isUnlocked)
+            .Select(ingredient => ingredient.Value).ToList();
+
+        if (tempIngredientList.Count < 1)
+        {
+            Debug.LogError("No ingredients unlocked");
+            return null;
+        }
+
+        if (Data.CustomerData.IsVegetarian)
+        {
+            tempIngredientList = tempIngredientList.Where(ingredient => ingredient.isVegetarian).ToList();
+        }
+
+        for (var i = 0; i < numOfIngredients; i++)
+        {
+            // currently getting random ingredients. We can utilise the preferred and disliked ingredients here
+            var ingredient = tempIngredientList[Random.Range(0, tempIngredientList.Count)];
+            ingredients.Add(ingredient);
+            tempIngredientList.Remove(ingredient);
+        }
+
+        return ingredients;
+    }
+
+    /// <summary>
+    /// Updates the order’s status (e.g., from Pending to InProgress or Completed).
+    /// </summary>
+    /// <param name="newStatus"></param>
+
+    public void UpdateStatus(OrderStatus newStatus)
+    {
+        Data.Status = newStatus;
+        switch (newStatus)
+        {
+            case OrderStatus.Pending:
+
+                break;
+            case OrderStatus.InProgress:
+                DelegatesManager.Instance.TriggerOnOrderGenerated(Data);
+                break;
+            case OrderStatus.Completed:
+                DelegatesManager.Instance.TriggerOnOrderCompleted(Data, true);
+                break;
+            case OrderStatus.Failed:
+                DelegatesManager.Instance.TriggerOnOrderCompleted(Data, false);
+                break;
+        }
+    }
+    
+    /// <summary>
+    /// Compares the player’s constructed pizza with the RequiredIngredients and
+    /// returns an accuracy score based on how closely they match.
+    /// </summary>
+    /// <param name="pizza"></param>
+    public void EvaluatePizza(Pizza pizza)
+    {
+        var accuracy = 0f;
+        var matchingIngredients = 0;
+        
+        foreach (var ingredient in pizza.Data.IngredientsOnPizza)
+        {
+            if (Data.RequiredIngredients.Any(reqIngredient => reqIngredient.Equals(ingredient)))
+            {
+                matchingIngredients++;
+            }
+        }
+
+        accuracy = (float)matchingIngredients / Data.RequiredIngredients.Count;
+        Debug.Log($"Pizza Evaluation: {matchingIngredients}/{Data.RequiredIngredients.Count} ingredients match.");
+        Debug.Log($"Accuracy Score: {accuracy * 100}%");
+        
+        if (Data.IsTimed && IsOrderTimedOut(Data.OrderTimer))
+        {
+            accuracy -= 50f;
+        }
+
+        Data.AccuracyScore = accuracy;
+    }
+
+    /// <summary>
+    /// Checks if the time for a timed order has expired.
+    /// Returns true if the order's time limit has been exceeded.
+    /// </summary>
+    /// <param name="elapsedTime"></param>
+    /// <returns></returns>
+    public bool IsOrderTimedOut(float elapsedTime)
+    {
+        return Data.IsTimed && elapsedTime >= Data.TimeLimit;
+    }
+
+    /// <summary>
+    /// Calculates the reward based on the customer’s patience,
+    /// satisfaction, whether they are a VIP and pizza accuracy
+    /// </summary>
+    /// <returns></returns>
+    public int CalculateReward()
+    {
+        var customer = Data.CustomerData;
+        var totalCost = Data.RequiredIngredients.Sum(ingredient => ingredient.cost);
+        return (int)((customer.Patience + customer.Satisfaction + (customer.IsVIP ? 100 : 0) + totalCost) * Data.AccuracyScore);
+    }
+}

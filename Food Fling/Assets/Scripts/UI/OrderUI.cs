@@ -4,8 +4,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class OrderUI
+public class OrderUI : MonoBehaviour
 {
+    private void OnEnable()
+    {
+        DelegatesManager.Instance.OrderEventHandler.OnOrderGenerated += DisplayOrder;
+        DelegatesManager.Instance.OrderEventHandler.OnOrderCompleted += ResetOrderUI;
+    }
+
+    private void OnDisable()
+    {
+        DelegatesManager.Instance.OrderEventHandler.OnOrderGenerated -= DisplayOrder;
+        DelegatesManager.Instance.OrderEventHandler.OnOrderCompleted -= ResetOrderUI;
+    }
+    
+    
     public static List<Transform> FindOrderIngredientGameObjects(Customer customer)
     {
         var ingredientGameObjects = new List<Transform>();
@@ -21,12 +34,14 @@ public class OrderUI
 
         return ingredientGameObjects;
     }
-    
-    public static void DisplayOrder(Customer customer ,int orderID)
+
+    private static void DisplayOrder(OrderData order)
     {
-        var order = OrderManager.Instance.GetActiveOrderByID(orderID);
-        
-        foreach (var ingredientUI in order.RequiredIngredients.SelectMany(ingredient => 
+        Debug.Log($"Displaying Order: {order.OrderID}");
+       var customer = CustomerManager.Instance.GetCustomerByID(order.CustomerData.CustomerID);
+        // find all the ingredient UI gameobjects with matching names of the required ingredients
+        // and set them to active
+        foreach(var ingredientUI in order.RequiredIngredients.SelectMany(ingredient => 
                      customer.ingredientGameObjects.Where(ingredientUI =>
                      ingredient.ingredientName == ingredientUI.name)))
         {
@@ -34,9 +49,9 @@ public class OrderUI
         }
     }
 
-    public static void ResetOrderUI(Customer customer, int orderID)
+    private static void ResetOrderUI(OrderData order, bool success)
     {
-        var order = OrderManager.Instance.GetActiveOrderByID(orderID);
+        var customer = CustomerManager.Instance.GetCustomerByID(order.CustomerData.CustomerID);
         
         foreach (var ingredient in customer.ingredientGameObjects)
         {

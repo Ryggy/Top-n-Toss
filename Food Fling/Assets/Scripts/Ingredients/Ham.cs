@@ -9,11 +9,12 @@ namespace Ingredients
         {
             ingredientID = 2;
             ingredientName = "Ham";
-            quantity = 1;
             FoodType = FoodType.Meat;
             IngredientType = IngredientType.Topping;
             isUnlocked = true;
             isVegetarian = false;
+            cost = 5;
+            upgradeCost = 200;
         }
     }
 }

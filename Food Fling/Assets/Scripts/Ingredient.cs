@@ -1,8 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Serialization;
 
 public enum FoodType
 {
@@ -23,22 +19,15 @@ public enum IngredientType
 [Serializable]
 public class Ingredient
 {
-    // Unique identifier for the ingredient.
-    public int ingredientID;
-    // The name of the ingredient (e.g., "Pepperoni", "Mushroom")
+    public int ingredientID; 
     public string ingredientName;
-    // The amount of the ingredient
-    public int quantity;
-    // The type of the ingredient (e.g., Topping, Sauce, Cheese). 
     public IngredientType IngredientType;
-    // The type of the food (e.g., Vegetable, Meat, Dairy). 
     public FoodType FoodType;
-    // Indicates whether the ingredient is available for selection by the player.
     public bool isUnlocked;
-    // Indicates whether the ingredient is vegetarian.
     public bool isVegetarian;
-    //public List<SpecialEffect> SpecialEffects;
-
+    
+    public int cost;
+    public int upgradeCost;
     public void Unlock()
     {
         isUnlocked = true;
@@ -48,14 +37,4 @@ public class Ingredient
     {
         isUnlocked = false;
     }
-
-    // void AddSpecialEffect(SpecialEffect effect)
-    // {
-    //     SpecialEffects.Add(effect)
-    // }
-    
-    // void RemoveSpecialEffect(SpecialEffect effect)
-    // {
-    //     SpecialEffects.Remove(effect)
-    // }
 }

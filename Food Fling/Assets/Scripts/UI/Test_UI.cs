@@ -11,7 +11,7 @@ public class Test_UI : MonoBehaviour
     public Customer customer1;
     public Customer customer2;
     public Button[] buttons;
-    public TMP_Text scoreText;
+    //public TMP_Text scoreText;
     private int totalScore = 0;
     private void Start()
     {
@@ -22,6 +22,6 @@ public class Test_UI : MonoBehaviour
     public void UpdateScore(int score)
     {
         totalScore += score;
-        scoreText.text = "Score : " + totalScore.ToString();
+        //scoreText.text = "Money: " + totalScore.ToString();
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -7,6 +8,7 @@ using UnityEngine;
 public class PizzaEditor : Editor
 {
     string ingredientName;
+    private string customerID;
     public override void OnInspectorGUI()
     {
         // Draw the default inspector to keep other properties visible
@@ -17,12 +19,6 @@ public class PizzaEditor : Editor
 
         ingredientName = EditorGUILayout.TextField("Ingredient Name (Case Sensitive)", ingredientName);
         
-        // Add a button to check ingredient compatibility
-        if (GUILayout.Button("Check Ingredient Compatibility"))
-        {
-            bool isCompatible = pizza.CheckIngredientCompatability(ingredientName);
-            Debug.Log($"Ingredient compatibility: {isCompatible}");
-        }
         
         // Add a button to add an ingredient
         if (GUILayout.Button("Add Ingredient"))
@@ -40,18 +36,12 @@ public class PizzaEditor : Editor
         if (GUILayout.Button("Ingredients on Pizza?"))
         {
             Debug.Log("The Pizza has: ");
-            foreach (var ingredient in pizza.IngredientsOnPizza)
+            foreach (var ingredient in pizza.Data.IngredientsOnPizza)
             {
                 Debug.Log($"{ingredient.ingredientName}");
             }
         }
         
-        // Add a button to check if the pizza is ready
-        if (GUILayout.Button("Is Pizza Correct?"))
-        {
-            bool isReady = pizza.IsPizzaCorrect();
-            Debug.Log($"Pizza correct: {isReady}");
-        }
 
         // Add a button to reset the pizza
         if (GUILayout.Button("Reset Pizza"))
@@ -59,10 +49,12 @@ public class PizzaEditor : Editor
             pizza.ResetPizza();
         }
         
-        // Add a button to reset the pizza
+        customerID = EditorGUILayout.TextField("Submit Customer ID", customerID);
+        
+        // Add a button to submit the pizza
         if (GUILayout.Button("Submit Pizza"))
         {
-            pizza.SubmitPizza(OrderManager.Instance.CurrentOrder.customerDetails);
+            pizza.SubmitPizza(CustomerManager.Instance.GetCustomerByID(Int32.Parse(customerID)));
         }
     }
 }

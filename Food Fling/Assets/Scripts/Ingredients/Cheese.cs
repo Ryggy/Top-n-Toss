@@ -9,11 +9,12 @@ namespace Ingredients
         {
             ingredientID = 3;
             ingredientName = "Cheese";
-            quantity = 1;
             FoodType = FoodType.Dairy;
             IngredientType = IngredientType.Cheese;
             isUnlocked = true;
             isVegetarian = true;
+            cost = 5;
+            upgradeCost = 200;
         }
     }
 }

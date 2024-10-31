@@ -33,19 +33,23 @@ public sealed class OrderManager : MonoBehaviour
         }
     }
     public readonly Dictionary<string, Ingredient> AllIngredients = new Dictionary<string, Ingredient>();
+
+    public Dictionary<int, Order> ActiveOrders = new Dictionary<int, Order>();
+    
     
     // A list of currently active orders that need to be fulfilled.
-    public List<Order> ActiveOrders = new List<Order>();
+    //public List<Order> ActiveOrders = new List<Order>();
+    
     // The current order being worked on by the player, containing customer preferences and required ingredients.
-    public Order CurrentOrder;
+    //public Order CurrentOrder;
     // Tracks the number of successfully completed orders during a game session.
     public int completedOrders = 0;
     // Tracks the number of failed orders during a game session, affecting player progression or rewards.
     public int failedOrders = 0;
 
     public Customer debugCustomer;
-    public List<Customer> customers = new List<Customer>();
-    private void Start()
+
+    private void Awake()
     {
         InitialiseIngredientDictionary();
 
@@ -53,7 +57,15 @@ public sealed class OrderManager : MonoBehaviour
         {
             Debug.Log($"initialised ingredient: {ingredient.Value.ingredientName}");
         }
+        
+        foreach (var ingredient in AllIngredients.Where(ingredient => ingredient.Value.isUnlocked))
+        {
+            Progression.Instance.Data.UnlockedIngredients.Add(ingredient.Key);
+        }
+    }
 
+    private void Start()
+    {
         if (debugCustomer != null)
         {
             TakeCustomerOrder(debugCustomer);
@@ -62,12 +74,9 @@ public sealed class OrderManager : MonoBehaviour
 
     private void Update()
     {
-        foreach (var order in ActiveOrders)
+        foreach(var order in ActiveOrders)
         {
-            order.Update(Time.deltaTime);
-            // if a customer has multiple orders this will get called twice
-            // maybe update -> Customers -> update -> Orders
-            order.customerDetails.UpdatePatience(Time.deltaTime);
+            order.Value.UpdateOrder(Time.deltaTime);
         }
     }
     
@@ -89,32 +98,12 @@ public sealed class OrderManager : MonoBehaviour
     {
         // take the customers order
         var orders = customer.GenerateOrder();
-        // keep a record of what they want
-        //ActiveOrders.AddRange(orders);
-        // display the orders
-        foreach (var order in ActiveOrders)
+
+        foreach (var order in orders)
         {
-            Debug.Log("Order Up: A Pizza with ");
-            foreach (var t in order.RequiredIngredients)
-            {
-                Debug.Log($"{t.ingredientName}");
-            }
+            ActiveOrders.Add(order.Data.OrderID, order);
+            order.UpdateStatus(OrderStatus.InProgress);
         }
-        
-        // TODO: implement system for selecting and assigning orders
-        // assign the first order for now
-        AssignOrderToPlayer(ActiveOrders[0].orderID);
-    }
-    
-    /// <summary>
-    /// Assigns the generated order to the player, setting it as the CurrentOrder and resetting the OrderTimer.
-    /// <param name="orderID"></param>
-    /// </summary>
-    public void AssignOrderToPlayer(int orderID)
-    {
-        // set the current order via order ID
-        CurrentOrder = GetActiveOrderByID(orderID);
-        CurrentOrder?.UpdateStatus(OrderStatus.InProgress);
     }
     
     /// <summary>
@@ -125,11 +114,16 @@ public sealed class OrderManager : MonoBehaviour
         completedOrders++;
         Order tempOrder = GetActiveOrderByID(orderID);
         tempOrder.UpdateStatus(OrderStatus.Completed);
-        ActiveOrders.Remove(tempOrder);
+        ActiveOrders.Remove(orderID);
         Debug.Log($"Completed Order: {orderID}");
         
-        // taking another random customers order
-        TakeCustomerOrder(customers[Random.Range(0,customers.Count)]);
+        // Taking another random customer's order
+        var allCustomers = CustomerManager.Instance.Customers.Values.ToList();
+        if(allCustomers.Count > 0)
+        {
+            var randomCustomer = allCustomers[Random.Range(0, allCustomers.Count)];
+            TakeCustomerOrder(randomCustomer);
+        }
     }
 
     /// <summary>
@@ -144,7 +138,7 @@ public sealed class OrderManager : MonoBehaviour
 
     public Order GetActiveOrderByID(int orderID)
     {
-        foreach (var order in ActiveOrders.Where(order => order.orderID == orderID))
+        if (ActiveOrders.TryGetValue(orderID, out var order))
         {
             return order;
         }

@@ -9,11 +9,12 @@ namespace Ingredients
         {
             ingredientID = 4;
             ingredientName = "TomatoSauce";
-            quantity = 1;
             FoodType = FoodType.None;
             IngredientType = IngredientType.Sauce;
             isUnlocked = true;
             isVegetarian = true;
+            cost = 5;
+            upgradeCost = 200;
         }
     }
 }
