@@ -6,17 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="20342052-ebff-4383-8090-8cb8fb89a9ba" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Food Fling/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Food Fling/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Input/DragAndDrop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/DragAndDrop.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test_OrderManager.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test_OrderManager.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ingredient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ingredient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OrderManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/OrderManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/OrderUI.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/OrderUI.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Test_UI.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Test_UI.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/UpgradesPanel.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/UpgradesPanel.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,12 +22,15 @@
     <setting file="file://$PROJECT_DIR$/Assets/Editor/PizzaEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Input/DragAndDrop.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Customer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Events/GameEventHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingredient.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingredients/BBQSauce.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingredients/TomatoSauce.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/OrderManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Pizza.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Progression.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/ScoreUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Upgrades.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -127,6 +119,13 @@
       <workItem from="1729636129649" duration="18024000" />
       <workItem from="1729979349466" duration="692000" />
       <workItem from="1729995991868" duration="3904000" />
+      <workItem from="1730328093163" duration="1830000" />
+      <workItem from="1730329954918" duration="115000" />
+      <workItem from="1730330078651" duration="38000" />
+      <workItem from="1730330124508" duration="36000" />
+      <workItem from="1730330223937" duration="3330000" />
+      <workItem from="1730333597092" duration="24000" />
+      <workItem from="1730333638787" duration="305000" />
     </task>
     <servers />
   </component>
