@@ -14,6 +14,8 @@ public class Slingshot : MonoBehaviour
     private Vector2 dragPoint;
     private bool isDragging = false;
 
+    private Pizza pizza;
+    
     private void OnEnable()
     {
         EnhancedTouchSupport.Enable();
@@ -39,6 +41,8 @@ public class Slingshot : MonoBehaviour
 
         resetPosition = transform.position;
         rb.isKinematic = true; // Ensure the object doesn't move until launched
+
+        pizza = GetComponent<Pizza>();
     }
 
     private void Update()
@@ -145,6 +149,8 @@ public class Slingshot : MonoBehaviour
         if (collision.gameObject.CompareTag("Customer"))
         {
             Debug.Log("Hit a customer!");
+            var customer = collision.gameObject.GetComponent<Customer>();
+            pizza.SubmitPizza(customer);
             Reset();
         }
         else
