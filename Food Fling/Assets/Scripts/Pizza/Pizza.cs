@@ -8,13 +8,21 @@ using UnityEngine.Serialization;
 public class Pizza : MonoBehaviour
 {
     public PizzaData Data { get; private set; } = new PizzaData();
-    public Test_UI TestUI;
     
     public void AddIngredient(string ingredient)
     {
         if (Data.IngredientsOnPizza.Count >= Data.MaxIngredients) return;
         var tempIngredient = OrderManager.Instance.AllIngredients[ingredient];
         Debug.Log($"Added ingredient: {ingredient}");
+
+        foreach(Transform child in transform)
+        {
+            if(child != null && child.name == ingredient)
+            {
+                child.gameObject.SetActive(true);
+            }
+        }
+
         Data.IngredientsOnPizza.Add(tempIngredient);
     }
     
@@ -32,7 +40,7 @@ public class Pizza : MonoBehaviour
 
         foreach (Transform child in transform)
         {
-            Destroy(child.gameObject);
+            child.gameObject.SetActive(false);
         }
     }
     
@@ -48,7 +56,6 @@ public class Pizza : MonoBehaviour
             var reward = tempOrder.CalculateReward();
             OrderManager.Instance.CompleteOrder(tempOrder.Data.OrderID);
             Progression.Instance.GainMoney(reward);
-            TestUI.UpdateScore(reward);
         }
         ResetPizza();
     }
