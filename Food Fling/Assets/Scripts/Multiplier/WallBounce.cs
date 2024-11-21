@@ -17,15 +17,14 @@ public class WallBounce : MonoBehaviour
         multiplierManager = FindObjectOfType<MultiplierManager>();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         pizzaVector = new Vector3(collision.transform.position.x, collision.transform.position.y);
-
-        if (collision.gameObject.name == "Pizza")
+        if (collision.gameObject.CompareTag("Pizza"))
         {
             Debug.Log("Pizza bounced");
             multiplierManager.multTotal = multiplierManager.multTotal + multiplierManager.multPerBounce;
-            Instantiate(floatingPoints, transform.position, Quaternion.identity);
+            Instantiate(floatingPoints, pizzaVector, Quaternion.identity);
         }
     }
 }
