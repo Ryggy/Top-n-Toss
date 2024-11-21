@@ -15,6 +15,7 @@ public class Slingshot : MonoBehaviour
     private bool isDragging = false;
 
     private Pizza pizza;
+    public MultiplierManager multipliers;
     
     private void OnEnable()
     {
@@ -43,6 +44,7 @@ public class Slingshot : MonoBehaviour
         rb.isKinematic = true; // Ensure the object doesn't move until launched
 
         pizza = GetComponent<Pizza>();
+        multipliers = FindObjectOfType<MultiplierManager>();
     }
 
     private void Update()
@@ -167,5 +169,6 @@ public class Slingshot : MonoBehaviour
         rb.velocity = Vector2.zero; // Stop linear velocity
         rb.angularVelocity = 0f; // Stop rotational velocity
         rb.rotation = 0f; // Ensure rotation angle is zero
+        multipliers.multTotal = 1f;
     }
 }
