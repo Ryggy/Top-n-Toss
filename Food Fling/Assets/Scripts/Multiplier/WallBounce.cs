@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -24,7 +25,8 @@ public class WallBounce : MonoBehaviour
         {
             Debug.Log("Pizza bounced");
             multiplierManager.multTotal = multiplierManager.multTotal + multiplierManager.multPerBounce;
-            Instantiate(floatingPoints, pizzaVector, Quaternion.identity);
+            GameObject points = Instantiate(floatingPoints, pizzaVector, Quaternion.identity) as GameObject;
+            points.transform.GetChild(0).GetComponent<TextMeshPro>().text = "x" + multiplierManager.multTotal.ToString();
         }
     }
 }
