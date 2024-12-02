@@ -8,5 +8,4 @@ public class ProgressionData
     public int TotalMoney { get; set; } = 0;
     public int MoneyThreshold { get; set; } = 500;
     public List<string> UnlockedIngredients { get; set; } = new List<string>();
-    public int TotalDeliveriesCompleted { get; set; } = 0;
 }

@@ -47,8 +47,6 @@ public sealed class OrderManager : MonoBehaviour
     // Tracks the number of failed orders during a game session, affecting player progression or rewards.
     public int failedOrders = 0;
 
-    public Customer debugCustomer;
-
     private void Awake()
     {
         InitialiseIngredientDictionary();
@@ -63,15 +61,7 @@ public sealed class OrderManager : MonoBehaviour
             Progression.Instance.Data.UnlockedIngredients.Add(ingredient.Key);
         }
     }
-
-    private void Start()
-    {
-        if (debugCustomer != null)
-        {
-            TakeCustomerOrder(debugCustomer);
-        }
-    }
-
+    
     private void Update()
     {
         foreach(var order in ActiveOrders)

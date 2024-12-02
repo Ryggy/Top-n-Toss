@@ -15,10 +15,10 @@ public class OrderManagerEditor : Editor
         OrderManager orderManager = (OrderManager)target;
 
         // Add a button to check ingredient compatibility
-        if (GUILayout.Button("Take Customer Order"))
-        {
-            orderManager.TakeCustomerOrder(OrderManager.Instance.debugCustomer);
-            Debug.Log($"Taking {OrderManager.Instance.debugCustomer.name}'s order");
-        }
+        // if (GUILayout.Button("Take Customer Order"))
+        // {
+        //     orderManager.TakeCustomerOrder(OrderManager.Instance.debugCustomer);
+        //     Debug.Log($"Taking {OrderManager.Instance.debugCustomer.name}'s order");
+        // }
     }
 }

@@ -69,8 +69,9 @@ public class Customer : MonoBehaviour
     public List<Order> GenerateOrder()
     {
         var cumulativeDifficulty = GetCumulativeDifficulty();
-        var numOfOrders = GetNumOfOrders(cumulativeDifficulty);
-        var numOfIngredients = GetNumOfIngredients(cumulativeDifficulty, numOfOrders);
+        //var numOfOrders = GetNumOfOrders(cumulativeDifficulty);
+        var numOfOrders = 1;
+        var numOfIngredients = GetNumOfIngredients(cumulativeDifficulty, 1);
 
         for (int i = 0; i < numOfOrders; i++)
         {
@@ -88,8 +89,15 @@ public class Customer : MonoBehaviour
 
     private int GetNumOfIngredients(int cumulativeDifficulty, int numOfOrders)
     {
-        // TODO: add formula to determine number of ingredients based on the difficulty and num of orders
-        return 2;
+        int minIngredients = 2; // Minimum number of ingredients
+        int maxIngredients = 8; // Maximum number of ingredients
+        int difficultyDivisor = 2; // Controls scaling rate
+
+        // Formula to calculate number of ingredients
+        int numOfIngredients = minIngredients + (cumulativeDifficulty / difficultyDivisor);
+
+        // Clamp the value between min and max
+        return Mathf.Clamp(numOfIngredients, minIngredients, maxIngredients);
     }
 
     private int GetCumulativeDifficulty()

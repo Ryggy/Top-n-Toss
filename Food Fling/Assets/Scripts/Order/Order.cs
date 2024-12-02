@@ -46,6 +46,7 @@ public class Order
             return null;
         }
 
+        // Filter unlocked ingredients
         var tempIngredientList = allIngredients
             .Where(ingredient => ingredient.Value.isUnlocked)
             .Select(ingredient => ingredient.Value).ToList();
@@ -56,14 +57,47 @@ public class Order
             return null;
         }
 
+        // Filter vegetarian ingredients if the customer is vegetarian
         if (Data.CustomerData.IsVegetarian)
         {
             tempIngredientList = tempIngredientList.Where(ingredient => ingredient.isVegetarian).ToList();
         }
 
-        for (var i = 0; i < numOfIngredients; i++)
+        // Ensure at least one sauce and remove all sauces from the list
+        var sauces = tempIngredientList.Where(ingredient => ingredient.IngredientType == IngredientType.Sauce).ToList();
+        if (sauces.Count > 0)
         {
-            // currently getting random ingredients. We can utilise the preferred and disliked ingredients here
+            var selectedSauce = sauces[Random.Range(0, sauces.Count)];
+            ingredients.Add(selectedSauce);
+            tempIngredientList.RemoveAll(ingredient => ingredient.IngredientType == IngredientType.Sauce);
+        }
+        else
+        {
+            Debug.LogWarning("No sauce ingredients available.");
+        }
+
+        // Ensure at least one cheese and remove all cheeses from the list
+        var cheeses = tempIngredientList.Where(ingredient => ingredient.IngredientType == IngredientType.Cheese).ToList();
+        if (cheeses.Count > 0)
+        {
+            var selectedCheese = cheeses[Random.Range(0, cheeses.Count)];
+            ingredients.Add(selectedCheese);
+            tempIngredientList.RemoveAll(ingredient => ingredient.IngredientType == IngredientType.Cheese);
+        }
+        else
+        {
+            Debug.LogWarning("No cheese ingredients available.");
+        }
+
+        // Add remaining ingredients randomly to meet the desired count
+        for (var i = ingredients.Count; i < numOfIngredients; i++)
+        {
+            if (tempIngredientList.Count == 0)
+            {
+                Debug.LogWarning("Not enough ingredients to fulfill the order.");
+                break;
+            }
+
             var ingredient = tempIngredientList[Random.Range(0, tempIngredientList.Count)];
             ingredients.Add(ingredient);
             tempIngredientList.Remove(ingredient);
@@ -71,7 +105,7 @@ public class Order
 
         return ingredients;
     }
-
+    
     /// <summary>
     /// Updates the order’s status (e.g., from Pending to InProgress or Completed).
     /// </summary>
