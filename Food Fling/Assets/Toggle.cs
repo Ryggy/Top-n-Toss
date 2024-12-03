@@ -11,8 +11,8 @@ public class Toggle : MonoBehaviour
     public RectTransform toggle;
     public float animationDuration = 0.5f; // Duration of the animation
     public Vector2 offPosition; // Panel's position when off
-    public Vector2 onPosition; // Panel's position when om
-    private bool isOn = false;
+    public Vector2 onPosition; // Panel's position when on
+    private bool isOn = true;
     
     public void OnToggle()
     {
