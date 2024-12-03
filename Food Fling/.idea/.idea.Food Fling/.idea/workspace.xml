@@ -5,12 +5,89 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20342052-ebff-4383-8090-8cb8fb89a9ba" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Ben.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Ben.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Jarel.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Jarel.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Liam.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Liam.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Mackenzie.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Mackenzie.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Nathan.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Nathan.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Phoenix.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Phoenix.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Raymond.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Raymond.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reaction.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reaction.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/Bad.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/Bad/No good.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/Bad/No good.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/Bad/Not paying.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/Bad/Not paying.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/Bad/Not what i wanted.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/Bad/Not what i wanted.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/Good.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/Good/I like it.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/Good/I like it.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/Good/Mmm this is really good.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/Good/Mmm this is really good.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/Good/This is nice.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/Good/This is nice.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/Horrible.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/Horrible/Bleh.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/Horrible/Bleh.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/Horrible/Horrible.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/Horrible/Horrible.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/Horrible/Its awful.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/Horrible/Its awful.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/OK.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/OK/I guess I'll tkae it.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/OK/I guess I'll tkae it.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/OK/Its OK.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/OK/Its OK.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/OK/Not the best.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/OK/Not the best.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/Perfect.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/Perfect/Best pizza i ever had.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/Perfect/Best pizza i ever had.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/Perfect/I love it.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/Perfect/I love it.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/Perfect/Its Brilliant.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Reactions/Perfect/Its Brilliant.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Customer_Reactions.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Customer_Reactions.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CustomerReactions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CustomerReactions.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/ReactionsUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/ReactionsUI.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Customer skins.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Customer skins/Ben.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Customer skins/Ben.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Customer skins/Jarel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Customer skins/Jarel.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Customer skins/Josh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Customer skins/Josh.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Customer skins/Liam.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Customer skins/Liam.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Customer skins/Mackenzie.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Customer skins/Mackenzie.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Customer skins/Nathan.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Customer skins/Nathan.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Customer skins/Phoenix.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Customer skins/Phoenix.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Customer skins/Raymond.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Customer skins/Raymond.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Customer skins/Ryan.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Customer skins/Ryan.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/speech bubble.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/speech bubble.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Food Fling/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Food Fling/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/OrderManagerEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/OrderManagerEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Customer/Customer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Customer/Customer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/OrderManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/OrderManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Order/Order.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Order/Order.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Progression/ProgressionData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Progression/ProgressionData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Josh.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Josh.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Ryan.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Ryan.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pizza/Pizza.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pizza/Pizza.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,27 +128,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Merging develop",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\Ryan Williamson\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\Ryan Williamson\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\Ryan Williamson\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\Ryan Williamson\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\Ryan Williamson\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\Ryan Williamson\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="E:\Unity\2022.3.38f1\Editor\Unity.exe" />
@@ -99,10 +176,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="30208">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="30208" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -144,6 +221,7 @@
       <workItem from="1730371042237" duration="598000" />
       <workItem from="1730416923730" duration="583000" />
       <workItem from="1733179678077" duration="1933000" />
+      <workItem from="1733192281755" duration="1037000" />
     </task>
     <servers />
   </component>
@@ -175,6 +253,58 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/UI/ReactionsUI.cs</url>
+          <line>69</line>
+          <properties documentPath="E:\SchoolWork\FoodFling\Food Fling\Assets\Scripts\UI\ReactionsUI.cs" initialLine="69" containingFunctionPresentation="Method 'ShowReaction'">
+            <startOffsets>
+              <option value="2282" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2337" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Pizza/Pizza.cs</url>
+          <line>51</line>
+          <properties documentPath="E:\SchoolWork\FoodFling\Food Fling\Assets\Scripts\Pizza\Pizza.cs" initialLine="51" containingFunctionPresentation="Method 'SubmitPizza'">
+            <startOffsets>
+              <option value="1487" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1568" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Slingshot.cs</url>
+          <line>154</line>
+          <properties documentPath="E:\SchoolWork\FoodFling\Food Fling\Assets\Scripts\Slingshot.cs" initialLine="154" containingFunctionPresentation="Method 'OnCollisionEnter2D'">
+            <startOffsets>
+              <option value="4638" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4666" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Pizza/Pizza.cs</url>
+          <line>48</line>
+          <properties documentPath="E:\SchoolWork\FoodFling\Food Fling\Assets\Scripts\Pizza\Pizza.cs" initialLine="48" containingFunctionPresentation="Method 'SubmitPizza'">
+            <startOffsets>
+              <option value="1350" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1407" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

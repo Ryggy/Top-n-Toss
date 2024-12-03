@@ -49,7 +49,7 @@ public class Pizza : MonoBehaviour
         if (customer != null && customer.CustomerOrder.Count > 0)
         {
             Order tempOrder = customer.CustomerOrder[0];
-            
+            DelegatesManager.Instance.OrderEventHandler.OrderSubmitted(tempOrder.Data, this);
             tempOrder.EvaluatePizza(this);
             customer.UpdateSatisfaction(this);
             
