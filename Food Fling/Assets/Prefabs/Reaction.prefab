@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5786511583343539056}
   - component: {fileID: 4831648015001956209}
   m_Layer: 0
-  m_Name: Not Paying
+  m_Name: Reaction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1.92, y: 1.92}
+  m_SizeDelta: {x: 192, y: 192}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5786511583343539056
 CanvasRenderer:
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Not Paying
+  m_text: No good
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a5a95fb396a9a642bcfa2bcc2f3c7a8, type: 2}
   m_sharedMaterial: {fileID: -6135940528052112050, guid: 8a5a95fb396a9a642bcfa2bcc2f3c7a8, type: 2}
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.9
+  m_fontSize: 25.85
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

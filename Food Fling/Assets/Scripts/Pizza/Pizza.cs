@@ -8,7 +8,6 @@ using UnityEngine.Serialization;
 public class Pizza : MonoBehaviour
 {
     public PizzaData Data { get; private set; } = new PizzaData();
-    public Test_UI TestUI;
     
     public void AddIngredient(string ingredient)
     {
@@ -41,14 +40,13 @@ public class Pizza : MonoBehaviour
         if (customer != null && customer.CustomerOrder.Count > 0)
         {
             Order tempOrder = customer.CustomerOrder[0];
-            
+            DelegatesManager.Instance.OrderEventHandler.OrderSubmitted(tempOrder.Data, this);
             tempOrder.EvaluatePizza(this);
             customer.UpdateSatisfaction(this);
             
             var reward = tempOrder.CalculateReward();
             OrderManager.Instance.CompleteOrder(tempOrder.Data.OrderID);
             Progression.Instance.GainMoney(reward);
-            TestUI.UpdateScore(reward);
         }
         ResetPizza();
     }
