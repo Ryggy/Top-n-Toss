@@ -55,6 +55,8 @@ public class Pizza : MonoBehaviour
             
             var reward = tempOrder.CalculateReward();
             OrderManager.Instance.CompleteOrder(tempOrder.Data.OrderID);
+            // Taking another random customer's order by removing current from active customers
+            CustomerManager.Instance.RemoveCustomer(customer);
             Progression.Instance.GainMoney(reward);
         }
         ResetPizza();

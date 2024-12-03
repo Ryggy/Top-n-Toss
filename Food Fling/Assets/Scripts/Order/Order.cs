@@ -10,7 +10,8 @@ using Random = UnityEngine.Random;
 [Serializable]
 public class Order
 {
-    public OrderData Data { get; private set; }
+    
+    [SerializeField]public OrderData Data { get; private set; }
     private MultiplierManager MultiplierManager;
     public Order(CustomerData customerData, MultiplierManager multiplierManager, int numOfIngredients)
     {

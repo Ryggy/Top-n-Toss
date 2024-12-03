@@ -106,14 +106,6 @@ public sealed class OrderManager : MonoBehaviour
         tempOrder.UpdateStatus(OrderStatus.Completed);
         ActiveOrders.Remove(orderID);
         Debug.Log($"Completed Order: {orderID}");
-        
-        // Taking another random customer's order
-        var allCustomers = CustomerManager.Instance.Customers.Values.ToList();
-        if(allCustomers.Count > 0)
-        {
-            var randomCustomer = allCustomers[Random.Range(0, allCustomers.Count)];
-            TakeCustomerOrder(randomCustomer);
-        }
     }
 
     /// <summary>

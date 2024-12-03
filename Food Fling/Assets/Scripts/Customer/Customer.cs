@@ -8,7 +8,8 @@ using UnityEngine.Serialization;
 
 public class Customer : MonoBehaviour
 {
-    [SerializeField] 
+    [SerializeField] private float moveSpeed = 5f;
+    
     public CustomerData Data = new CustomerData();
     public GameObject orderUIGameObject;
     public MultiplierManager MultiplierManager;
@@ -16,21 +17,12 @@ public class Customer : MonoBehaviour
     public List<Transform> ingredientGameObjects = new List<Transform>();
     [SerializeField]
     public List<Order> CustomerOrder = new List<Order>();
-
-    private void Awake()
-    {
-        CustomerManager.Instance.AddCustomer(this); 
-    }
-
+    
     private void Start()
     {
 
         ingredientGameObjects = OrderUI.FindOrderIngredientGameObjects(this);
         
-        DelegatesManager.Instance.CustomerEventHandler.OnCustomerArrives += HandleCustomerArrives;
-        DelegatesManager.Instance.CustomerEventHandler.OnCustomerLeaves += HandleCustomerLeaves;
-        DelegatesManager.Instance.OrderEventHandler.OnOrderCompleted += RemoveCustomerOrder;
-
         if (MultiplierManager == null)
         {
            MultiplierManager = FindObjectOfType<MultiplierManager>();
@@ -47,6 +39,13 @@ public class Customer : MonoBehaviour
        }
     }
 
+    private void OnEnable()
+    {
+        DelegatesManager.Instance.CustomerEventHandler.OnCustomerArrives += HandleCustomerArrives;
+        DelegatesManager.Instance.CustomerEventHandler.OnCustomerLeaves += HandleCustomerLeaves;
+        DelegatesManager.Instance.OrderEventHandler.OnOrderCompleted += RemoveCustomerOrder;
+    }
+
     private void OnDisable()
     {
         DelegatesManager.Instance.CustomerEventHandler.OnCustomerArrives -= HandleCustomerArrives;
@@ -54,15 +53,35 @@ public class Customer : MonoBehaviour
         DelegatesManager.Instance.OrderEventHandler.OnOrderCompleted -= RemoveCustomerOrder;
     }
 
+    /// <summary>
+    /// Moves the customer to a target position and triggers a callback upon arrival.
+    /// </summary>
+    /// <param name="targetPosition">The target position.</param>
+    /// <param name="onArrival">Callback triggered when movement is complete.</param>
+    /// <returns></returns>
+    public IEnumerator MoveToPosition(Vector3 targetPosition, Action onArrival = null)
+    {
+        while (Vector3.Distance(transform.position, targetPosition) > 0.1f)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+            yield return null;
+        }
+
+        transform.position = targetPosition;
+        onArrival?.Invoke();
+    }
+    
     private void HandleCustomerArrives(CustomerData customer)
     {
         // Handle customer arrival logic
+        AudioManager.Instance.PlaySoundEffectByIndex(0);
         Debug.Log($"Customer {customer.CustomerName} has arrived.");
     }
 
     private void HandleCustomerLeaves(CustomerData customer)
     {
         // Handle customer leaving logic
+        AudioManager.Instance.PlaySoundEffectByIndex(1);
         Debug.Log($"Customer {customer.CustomerName} has left.");
     }
     
@@ -95,8 +114,8 @@ public class Customer : MonoBehaviour
     private int GetNumOfIngredients(int cumulativeDifficulty, int numOfOrders)
     {
         int minIngredients = 2; // Minimum number of ingredients
-        int maxIngredients = 8; // Maximum number of ingredients
-        int difficultyDivisor = 2; // Controls scaling rate
+        int maxIngredients = 6; // Maximum number of ingredients
+        int difficultyDivisor = 3; // Controls scaling rate
 
         // Formula to calculate number of ingredients
         int numOfIngredients = minIngredients + (cumulativeDifficulty / difficultyDivisor);
