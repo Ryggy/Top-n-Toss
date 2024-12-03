@@ -11,10 +11,11 @@ using Random = UnityEngine.Random;
 public class Order
 {
     public OrderData Data { get; private set; }
-    
-    public Order(CustomerData customerData, int numOfIngredients)
+    private MultiplierManager MultiplierManager;
+    public Order(CustomerData customerData, MultiplierManager multiplierManager, int numOfIngredients)
     {
         Data = new OrderData(customerData);
+        MultiplierManager = multiplierManager;
         Data.RequiredIngredients = GenerateIngredients(numOfIngredients);
         UpdateStatus(OrderStatus.Pending);
     }
@@ -147,6 +148,6 @@ public class Order
     {
         var customer = Data.CustomerData;
         var totalCost = Data.RequiredIngredients.Sum(ingredient => ingredient.cost);
-        return (int)((customer.Patience + customer.Satisfaction + (customer.IsVIP ? 100 : 0) + totalCost) * Data.AccuracyScore);
+        return (int)((customer.Patience + customer.Satisfaction + (customer.IsVIP ? 100 : 0) + totalCost) * Data.AccuracyScore * MultiplierManager.multTotal);
     }
 }

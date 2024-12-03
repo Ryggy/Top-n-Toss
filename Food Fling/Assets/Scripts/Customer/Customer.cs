@@ -11,7 +11,7 @@ public class Customer : MonoBehaviour
     [SerializeField] 
     public CustomerData Data = new CustomerData();
     public GameObject orderUIGameObject;
-    
+    public MultiplierManager MultiplierManager;
     [HideInInspector]
     public List<Transform> ingredientGameObjects = new List<Transform>();
     [SerializeField]
@@ -30,6 +30,11 @@ public class Customer : MonoBehaviour
         DelegatesManager.Instance.CustomerEventHandler.OnCustomerArrives += HandleCustomerArrives;
         DelegatesManager.Instance.CustomerEventHandler.OnCustomerLeaves += HandleCustomerLeaves;
         DelegatesManager.Instance.OrderEventHandler.OnOrderCompleted += RemoveCustomerOrder;
+
+        if (MultiplierManager == null)
+        {
+           MultiplierManager = FindObjectOfType<MultiplierManager>();
+        }
     }
 
     private void RemoveCustomerOrder(OrderData order, bool success)
@@ -74,7 +79,7 @@ public class Customer : MonoBehaviour
 
         for (int i = 0; i < numOfOrders; i++)
         {
-            CustomerOrder.Add(new Order(Data, numOfIngredients));
+            CustomerOrder.Add(new Order(Data, MultiplierManager, numOfIngredients));
         }
 
         return CustomerOrder;

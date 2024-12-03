@@ -594,8 +594,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2086561677}
   m_HandleRect: {fileID: 2086561676}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4477,7 +4477,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -400, y: -41.176453}
+  m_AnchoredPosition: {x: -400, y: -41.176514}
   m_SizeDelta: {x: 800, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &1070220374 stripped
@@ -6138,7 +6138,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1820610990}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.078143105
+  m_Size: 0.7194444
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -9969,6 +9969,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6396233848124209538, guid: b05c3440215d7944692a4b4aab39c4cc, type: 3}
+      propertyPath: MultiplierManager
+      value: 
+      objectReference: {fileID: 195474368}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10183,6 +10187,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Josh
       objectReference: {fileID: 0}
+    - target: {fileID: 6382039665720069500, guid: 384c132414d1133469fa46cfdd80be14, type: 3}
+      propertyPath: MultiplierManager
+      value: 
+      objectReference: {fileID: 195474368}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
